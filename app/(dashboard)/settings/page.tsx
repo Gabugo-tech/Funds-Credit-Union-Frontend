@@ -663,7 +663,7 @@ function PrivacyTab() {
           <div className="flex items-center justify-between p-4 rounded-xl border border-light-border dark:border-dark-border">
             <div>
               <p className="text-sm font-semibold text-slate-900 dark:text-white">Download My Data</p>
-              <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">Get a copy of all your Evergreen data</p>
+              <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">Get a copy of all your Funds Credit Union data</p>
             </div>
             <Button variant="secondary" size="sm" rightIcon={<ChevronRight className="h-4 w-4" />}>Request</Button>
           </div>

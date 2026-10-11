@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 
-const BASE_URL = "https://evergreen-world-bank.vercel.app";
+const BASE_URL = "https://fundscreditunion.vercel.app";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [

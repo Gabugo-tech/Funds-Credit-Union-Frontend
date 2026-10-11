@@ -5,7 +5,8 @@ import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { Lock, Mail, Leaf, Shield } from "lucide-react";
+import { Lock, Mail, Shield } from "lucide-react";
+import FcuLogo from "@/components/ui/FcuLogo";
 import { motion } from "framer-motion";
 import Button from "@/components/ui/Button";
 import Input from "@/components/ui/Input";
@@ -83,7 +84,7 @@ export default function AdminLoginPage() {
               <Shield className="h-7 w-7 text-white" />
             </div>
             <h1 className="text-2xl font-bold text-white">Admin Portal</h1>
-            <p className="text-slate-400 text-sm mt-1">Evergreen Secure Administration</p>
+            <p className="text-slate-400 text-sm mt-1">Funds Credit Union Secure Administration</p>
           </div>
 
           {/* Warning */}
@@ -126,10 +127,8 @@ export default function AdminLoginPage() {
 
         {/* Branding */}
         <div className="flex items-center justify-center gap-2 mt-6">
-          <div className="h-6 w-6 rounded-lg bg-gradient-blue flex items-center justify-center">
-            <Leaf className="h-3.5 w-3.5 text-white" />
-          </div>
-          <span className="text-sm font-semibold text-slate-400">Evergreen</span>
+          <FcuLogo size={24} />
+          <span className="text-sm font-semibold text-slate-400">Funds Credit Union</span>
         </div>
       </motion.div>
     </div>

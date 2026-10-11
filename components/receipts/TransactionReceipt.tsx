@@ -1,7 +1,8 @@
 "use client";
 
 import { useRef } from "react";
-import { Leaf, X, CheckCircle2, Printer } from "lucide-react";
+import { X, CheckCircle2, Printer } from "lucide-react";
+import FcuLogo from "@/components/ui/FcuLogo";
 import { formatCurrency, formatDate } from "@/lib/utils";
 import { cn } from "@/lib/utils";
 import Button from "@/components/ui/Button";
@@ -42,7 +43,7 @@ export default function TransactionReceipt({ data, onClose }: Props) {
       <!DOCTYPE html>
       <html>
       <head>
-        <title>Evergreen Transfer Receipt — ${data.reference}</title>
+        <title>Funds Credit Union Transfer Receipt — ${data.reference}</title>
         <meta charset="UTF-8" />
         <style>
           * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -70,9 +71,9 @@ export default function TransactionReceipt({ data, onClose }: Props) {
       </head>
       <body>
         <div class="header">
-          <div class="logo">EG</div>
+          <div class="logo">FCU</div>
           <div>
-            <div class="brand">Evergreen</div>
+            <div class="brand">Funds Credit Union</div>
             <div class="brand-sub">TRANSFER RECEIPT</div>
           </div>
           <div style="margin-left:auto;text-align:right;">
@@ -114,9 +115,9 @@ export default function TransactionReceipt({ data, onClose }: Props) {
 
         <div class="footer">
           <div class="footer-text">
-            This is an auto-generated receipt from Evergreen Financial Limited.<br/>
+            This is an auto-generated receipt from Funds Credit Union.<br/>
             CBN Digital Banking License No. DBL/2024/001 · NDIC Insured<br/>
-            For disputes, contact support@evergreen.com within 14 days of transaction.<br/>
+            For disputes, contact support@fundscreditunion.com within 14 days of transaction.<br/>
             Reference: ${data.reference}
           </div>
         </div>
@@ -142,11 +143,9 @@ export default function TransactionReceipt({ data, onClose }: Props) {
         <div className="bg-gradient-blue p-5 text-white">
           <div className="flex items-center justify-between mb-4">
             <div className="flex items-center gap-2.5">
-              <div className="h-9 w-9 rounded-xl bg-white/20 flex items-center justify-center">
-                <Leaf className="h-5 w-5 text-white" />
-              </div>
+              <FcuLogo size={36} />
               <div>
-                <p className="font-bold text-base">Evergreen</p>
+                <p className="font-bold text-base">Funds Credit Union</p>
                 <p className="text-white/70 text-xs">TRANSFER RECEIPT</p>
               </div>
             </div>
@@ -232,9 +231,9 @@ export default function TransactionReceipt({ data, onClose }: Props) {
           {/* CBN disclaimer */}
           <div className="text-center pt-2">
             <p className="text-xs text-slate-400 leading-relaxed">
-              Auto-generated receipt · Evergreen Financial Limited<br />
+              Auto-generated receipt · Funds Credit Union<br />
               CBN License No. DBL/2024/001 · NDIC Insured<br />
-              Disputes: support@evergreen.com within 14 days
+              Disputes: support@fundscreditunion.com within 14 days
             </p>
           </div>
         </div>

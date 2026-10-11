@@ -38,7 +38,7 @@ const typeConfig: Record<NotifType, {
   security:    { icon: Shield,       color: "text-danger-light",                       bg: "bg-danger-bg dark:bg-red-900/20",          badge: "red"     },
   payment:     { icon: ArrowUpRight, color: "text-success-light",                      bg: "bg-success-bg dark:bg-green-900/20",       badge: "green"   },
   system:      { icon: Info,         color: "text-slate-500 dark:text-slate-400",      bg: "bg-slate-100 dark:bg-dark-muted",          badge: "neutral" },
-  investment:  { icon: TrendingUp,   color: "text-evergreen-500",                      bg: "bg-evergreen-50 dark:bg-evergreen-900/20", badge: "blue"    },
+  investment:  { icon: TrendingUp,   color: "text-primary-500",                        bg: "bg-primary-50 dark:bg-primary-900/20",      badge: "blue"    },
   promo:       { icon: Gift,         color: "text-warning-light",                      bg: "bg-warning-bg dark:bg-yellow-900/20",      badge: "yellow"  },
 };
 

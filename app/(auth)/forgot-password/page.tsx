@@ -5,7 +5,8 @@ import Link from "next/link";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { Mail, ArrowLeft, ArrowRight, Leaf, CheckCircle2, Lock, Eye, EyeOff, KeyRound } from "lucide-react";
+import { Mail, ArrowLeft, ArrowRight, CheckCircle2, Lock, Eye, EyeOff, KeyRound } from "lucide-react";
+import FcuLogo from "@/components/ui/FcuLogo";
 import { motion, AnimatePresence } from "framer-motion";
 import Button from "@/components/ui/Button";
 import Input from "@/components/ui/Input";
@@ -126,10 +127,8 @@ export default function ForgotPasswordPage() {
     >
       {/* Mobile logo */}
       <div className="flex lg:hidden items-center gap-2 mb-8">
-        <div className="h-9 w-9 rounded-xl bg-gradient-blue flex items-center justify-center shadow-glow-sm">
-          <Leaf className="h-5 w-5 text-white" />
-        </div>
-        <span className="text-xl font-bold text-slate-900 dark:text-white">Evergreen</span>
+        <FcuLogo size={36} />
+        <span className="text-xl font-bold text-slate-900 dark:text-white">Funds Credit Union</span>
       </div>
 
       <AnimatePresence mode="wait">

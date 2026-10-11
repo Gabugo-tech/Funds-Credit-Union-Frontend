@@ -3,34 +3,34 @@ import { ThemeProvider } from "next-themes";
 import { AuthProvider } from "@/context/AuthContext";
 import "./globals.css";
 
-const BASE_URL = "https://evergreen-frontend-lac.vercel.app";
+const BASE_URL = "https://fundscreditunion.vercel.app";
 
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
   title: {
-    default: "Evergreen — Smart Banking & Investing",
-    template: "%s | Evergreen",
+    default: "Funds Credit Union — Smart Banking & Investing",
+    template: "%s | Funds Credit Union",
   },
   description:
-    "Evergreen is a World Bank Approved digital banking and investment platform. Open a free account in minutes. Send money globally, invest in stocks, and grow your wealth.",
+    "Funds Credit Union is a World Bank Approved digital banking and investment platform. Open a free account in minutes. Send money globally, invest in stocks, and grow your wealth.",
   keywords: [
     "digital bank", "fintech Nigeria", "online banking", "investment platform",
     "send money internationally", "multi-currency account", "NGN USD GBP EUR",
-    "stock investing Nigeria", "Evergreen bank", "world bank approved bank",
+    "stock investing Nigeria", "Funds Credit Union", "world bank approved bank",
   ],
-  authors: [{ name: "Evergreen Financial", url: BASE_URL }],
-  creator: "Evergreen Financial Limited",
-  publisher: "Evergreen Financial Limited",
+  authors: [{ name: "Funds Credit Union", url: BASE_URL }],
+  creator: "Funds Credit Union Limited",
+  publisher: "Funds Credit Union Limited",
   category: "finance",
   alternates: {
     canonical: BASE_URL,
   },
   openGraph: {
-    title: "Evergreen — Smart Banking & Investing",
+    title: "Funds Credit Union — Smart Banking & Investing",
     description:
       "World Bank Approved digital bank. Open a free account, send money globally, and invest in stocks — all in one platform.",
     url: BASE_URL,
-    siteName: "Evergreen",
+    siteName: "Funds Credit Union",
     type: "website",
     locale: "en_US",
     images: [
@@ -38,17 +38,17 @@ export const metadata: Metadata = {
         url: `${BASE_URL}/og-image.png`,
         width: 1200,
         height: 630,
-        alt: "Evergreen — Smart Banking & Investing",
+        alt: "Funds Credit Union — Smart Banking & Investing",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Evergreen — Smart Banking & Investing",
+    title: "Funds Credit Union — Smart Banking & Investing",
     description:
       "World Bank Approved digital bank. Open a free account, send money globally, and invest in stocks.",
     images: [`${BASE_URL}/og-image.png`],
-    creator: "@EvergreenBank",
+    creator: "@FundsCreditUnion",
   },
   robots: {
     index: true,
@@ -76,8 +76,8 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#2563eb" },
-    { media: "(prefers-color-scheme: dark)",  color: "#172554" },
+    { media: "(prefers-color-scheme: light)", color: "#0277c6" },
+    { media: "(prefers-color-scheme: dark)",  color: "#060d1a" },
   ],
 };
 
@@ -89,7 +89,7 @@ export default function RootLayout({
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "FinancialService",
-    name: "Evergreen Financial",
+    name: "Funds Credit Union",
     url: BASE_URL,
     logo: `${BASE_URL}/icon`,
     description:
@@ -98,7 +98,7 @@ export default function RootLayout({
     currenciesAccepted: "NGN, USD, GBP, EUR, CAD, AUD, JPY, CHF, INR, CNY, BRL, MXN, ZAR, SGD, AED, THB, TWD",
     serviceType: "Digital Banking",
     sameAs: [
-      "https://twitter.com/EvergreenBank",
+      "https://twitter.com/FundsCreditUnion",
     ],
   };
 

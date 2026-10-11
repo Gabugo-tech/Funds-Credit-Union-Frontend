@@ -18,22 +18,22 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 
 const variantClasses: Record<Variant, string> = {
   primary:
-    "bg-gradient-blue text-white shadow-glow-sm hover:opacity-90 focus:ring-primary-500/50",
+    "bg-gradient-gold text-white shadow-glow-gold hover:opacity-90 focus:ring-gold-400/50",
   secondary:
-    "bg-light-surface dark:bg-dark-surface border border-light-border dark:border-dark-border text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-dark-muted focus:ring-primary-500/30",
+    "bg-light-surface dark:bg-dark-surface border border-light-border dark:border-dark-border text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-dark-muted focus:ring-sky-400/30",
   ghost:
-    "text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-dark-muted focus:ring-primary-500/30",
+    "text-slate-600 dark:text-slate-400 hover:bg-sky-50 dark:hover:bg-dark-muted focus:ring-sky-400/30",
   danger:
     "bg-danger-light text-white hover:bg-danger-dark focus:ring-red-500/50",
   outline:
-    "border-2 border-primary-500 text-primary-600 dark:text-primary-400 hover:bg-primary-50 dark:hover:bg-primary-900/20 focus:ring-primary-500/30",
+    "border-2 border-sky-400 text-sky-500 dark:text-sky-400 hover:bg-sky-50 dark:hover:bg-sky-900/20 focus:ring-sky-400/30",
 };
 
 const sizeClasses: Record<Size, string> = {
   xs: "px-3 py-1.5 text-xs rounded-lg",
   sm: "px-4 py-2 text-sm rounded-xl",
   md: "px-5 py-2.5 text-sm rounded-xl",
-  lg: "px-6 py-3 text-base rounded-xl",
+  lg: "px-7 py-3.5 text-base rounded-xl font-bold tracking-wide",
 };
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(

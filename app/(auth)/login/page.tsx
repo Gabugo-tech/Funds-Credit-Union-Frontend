@@ -65,15 +65,15 @@ export default function LoginPage() {
       {/* Mobile logo */}
       <div className="flex lg:hidden items-center gap-2 mb-8">
         <div className="h-9 w-9 rounded-xl bg-gradient-blue flex items-center justify-center shadow-glow-sm">
-          <span className="text-white font-bold text-sm">EG</span>
+          <span className="text-white font-bold text-sm">FCU</span>
         </div>
-        <span className="text-xl font-bold text-slate-900 dark:text-white">Evergreen</span>
+        <span className="text-xl font-bold text-slate-900 dark:text-white">Funds Credit Union</span>
       </div>
 
       {/* Heading */}
       <div className="mb-8">
         <h2 className="text-3xl font-bold text-slate-900 dark:text-white">Welcome back</h2>
-        <p className="mt-2 text-slate-500 dark:text-slate-400">Sign in to your Evergreen account</p>
+        <p className="mt-2 text-slate-500 dark:text-slate-400">Sign in to your Funds Credit Union account</p>
       </div>
 
       {/* Inline error banner */}

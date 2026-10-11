@@ -101,7 +101,7 @@ export default function DashboardPage() {
     { label: "Total Portfolio", value: formatCurrency(portfolioValue, "USD"), change: "Live", positive: true,  icon: TrendingUp, color: "text-primary-500",     bg: "bg-primary-500/10"     },
     { label: "Bank Balance",    value: formatCurrency(totalBalance,    "USD"), change: "Live", positive: true,  icon: Wallet,     color: "text-success-light",   bg: "bg-success-light/10"   },
     { label: "Monthly In",      value: formatCurrency(txSummary?.totalIn ?? 0, "USD"), change: "Income",  positive: true, icon: CreditCard, color: "text-warning-light",   bg: "bg-warning-light/10"   },
-    { label: "Monthly Out",     value: formatCurrency(txSummary?.totalOut ?? 0,"USD"), change: "Spend",   positive: false,icon: RefreshCw,  color: "text-evergreen-500",  bg: "bg-evergreen-500/10"   },
+    { label: "Monthly Out",     value: formatCurrency(txSummary?.totalOut ?? 0,"USD"), change: "Spend",   positive: false,icon: RefreshCw,  color: "text-primary-500",    bg: "bg-primary-500/10"     },
   ];
 
   return (

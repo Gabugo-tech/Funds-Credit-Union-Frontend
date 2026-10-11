@@ -10,51 +10,65 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Evergreen Blue Palette
+        // Primary — deep trust blue
         primary: {
-          50:  "#eff6ff",
-          100: "#dbeafe",
-          200: "#bfdbfe",
-          300: "#93c5fd",
-          400: "#60a5fa",
-          500: "#3b82f6",
-          600: "#2563eb",
-          700: "#1d4ed8",
-          800: "#1e40af",
-          900: "#1e3a8a",
-          950: "#172554",
+          50:  "#eff8ff",
+          100: "#dbeffe",
+          200: "#b9e1fd",
+          300: "#7cccfc",
+          400: "#38b3f8",
+          500: "#0e96e8",
+          600: "#0277c6",
+          700: "#035fa1",
+          800: "#075185",
+          900: "#0c436e",
+          950: "#082b49",
         },
-        // Evergreen brand accent
-        evergreen: {
-          50:  "#eef9ff",
-          100: "#d9f1ff",
-          200: "#bbe5ff",
-          300: "#8bd6ff",
-          400: "#52beff",
-          500: "#29a3fc",
-          600: "#0e84f1",
-          700: "#076ede",
-          800: "#0c58b4",
-          900: "#104a8e",
-          950: "#0c2d57",
+        // Sky — lighter sky-blue accent
+        sky: {
+          50:  "#f0faff",
+          100: "#e0f4fe",
+          200: "#b9eafe",
+          300: "#7cd8fd",
+          400: "#37c0f9",
+          500: "#0da6ea",
+          600: "#0185c8",
+          700: "#0269a2",
+          800: "#065886",
+          900: "#0b496f",
+          950: "#072e4a",
         },
-        // Dark mode surface colors
+        // Gold — trust & prosperity accent
+        gold: {
+          50:  "#fffbeb",
+          100: "#fef3c7",
+          200: "#fde68a",
+          300: "#fcd34d",
+          400: "#fbbf24",
+          500: "#f59e0b",
+          600: "#d97706",
+          700: "#b45309",
+          800: "#92400e",
+          900: "#78350f",
+          950: "#451a03",
+        },
+        // Dark mode surfaces
         dark: {
-          bg:      "#080e1c",
-          surface: "#0f1928",
-          card:    "#131f33",
-          border:  "#1e2d45",
-          muted:   "#1a2840",
+          bg:      "#060d1a",
+          surface: "#0a1628",
+          card:    "#0e1e35",
+          border:  "#162844",
+          muted:   "#112038",
         },
-        // Light mode surface
+        // Light mode surfaces
         light: {
-          bg:      "#f0f4fb",
+          bg:      "#f0f7ff",
           surface: "#ffffff",
           card:    "#ffffff",
-          border:  "#e2e8f0",
-          muted:   "#f8fafc",
+          border:  "#dbeffe",
+          muted:   "#f5faff",
         },
-        // Status colors
+        // Status
         success: {
           light: "#22c55e",
           dark:  "#16a34a",
@@ -81,17 +95,20 @@ const config: Config = {
         "4xl": "2rem",
       },
       boxShadow: {
-        "glow-blue":  "0 0 20px rgba(37, 99, 235, 0.25)",
-        "glow-sm":    "0 0 10px rgba(37, 99, 235, 0.15)",
+        "glow-blue":  "0 0 24px rgba(2, 119, 198, 0.3)",
+        "glow-gold":  "0 0 20px rgba(245, 158, 11, 0.3)",
+        "glow-sm":    "0 0 12px rgba(2, 119, 198, 0.2)",
         "card-light": "0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.06)",
         "card-dark":  "0 1px 3px rgba(0,0,0,0.4), 0 4px 16px rgba(0,0,0,0.3)",
         "nav":        "0 1px 0 rgba(0,0,0,0.08)",
       },
       backgroundImage: {
-        "gradient-blue":       "linear-gradient(135deg, #1d4ed8 0%, #0e84f1 100%)",
-        "gradient-blue-dark":  "linear-gradient(135deg, #172554 0%, #0c2d57 100%)",
-        "gradient-card":       "linear-gradient(145deg, rgba(30,64,175,0.12) 0%, rgba(14,132,241,0.06) 100%)",
-        "mesh":                "radial-gradient(at 20% 50%, rgba(37,99,235,0.15) 0px, transparent 50%), radial-gradient(at 80% 20%, rgba(14,132,241,0.1) 0px, transparent 50%)",
+        "gradient-blue":       "linear-gradient(135deg, #035fa1 0%, #0da6ea 100%)",
+        "gradient-blue-dark":  "linear-gradient(135deg, #082b49 0%, #072e4a 100%)",
+        "gradient-gold":       "linear-gradient(135deg, #d97706 0%, #fbbf24 100%)",
+        "gradient-trust":      "linear-gradient(135deg, #035fa1 0%, #0da6ea 60%, #fbbf24 100%)",
+        "gradient-card":       "linear-gradient(145deg, rgba(3,95,161,0.12) 0%, rgba(13,166,234,0.06) 100%)",
+        "mesh":                "radial-gradient(at 20% 50%, rgba(2,119,198,0.15) 0px, transparent 50%), radial-gradient(at 80% 20%, rgba(13,166,234,0.1) 0px, transparent 50%), radial-gradient(at 60% 80%, rgba(251,191,36,0.08) 0px, transparent 50%)",
       },
       animation: {
         "fade-in":    "fadeIn 0.3s ease-out",

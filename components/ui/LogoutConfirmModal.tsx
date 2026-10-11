@@ -15,7 +15,7 @@ export default function LogoutConfirmModal({ open, onClose, onConfirm }: Props) 
     <Modal
       open={open}
       onClose={onClose}
-      title="Sign out of Evergreen?"
+      title="Sign out of Funds Credit Union?"
       description="You will need to sign in again to access your account."
       size="sm"
       footer={

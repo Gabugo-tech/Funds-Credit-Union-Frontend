@@ -26,7 +26,7 @@ interface TopbarProps {
 export default function Topbar({ onMobileMenuToggle, notificationCount = 0 }: TopbarProps) {
   const pathname = usePathname();
   const { user } = useAuth();
-  const title = routeTitles[pathname] ?? "Evergreen";
+  const title = routeTitles[pathname] ?? "Funds Credit Union";
   const displayName = user?.full_name ?? "Account";
 
   return (

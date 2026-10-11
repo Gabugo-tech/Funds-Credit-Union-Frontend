@@ -4,8 +4,9 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import {
   LayoutDashboard, Landmark, Send, ArrowLeftRight,
-  TrendingUp, Bell, Settings, LogOut, X, Leaf, Shield,
+  TrendingUp, Bell, Settings, LogOut, X, Shield,
 } from "lucide-react";
+import FcuLogo from "@/components/ui/FcuLogo";
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
 import Avatar from "@/components/ui/Avatar";
@@ -57,10 +58,8 @@ export default function MobileSidebar({ open, onClose }: MobileSidebarProps) {
             {/* Header */}
             <div className="flex items-center justify-between h-16 px-4 border-b border-dark-border flex-shrink-0">
               <Link href="/dashboard" onClick={onClose} className="flex items-center gap-3">
-                <div className="h-9 w-9 rounded-xl bg-gradient-blue flex items-center justify-center shadow-glow-sm">
-                  <Leaf className="h-5 w-5 text-white" />
-                </div>
-                <span className="text-lg font-bold text-white">Evergreen</span>
+                <FcuLogo size={36} />
+                <span className="text-lg font-bold text-white">Funds Credit Union</span>
               </Link>
               <button onClick={onClose} className="p-1.5 rounded-lg text-slate-400 hover:text-white hover:bg-white/10 transition-colors">
                 <X className="h-5 w-5" />

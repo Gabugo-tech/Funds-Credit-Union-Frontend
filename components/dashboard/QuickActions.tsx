@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 
 const actions = [
   { label: "Send Money",   href: "/payments",      icon: Send,            color: "bg-primary-500",  hover: "hover:bg-primary-600" },
-  { label: "Receive",      href: "/payments",      icon: Download,        color: "bg-evergreen-600", hover: "hover:bg-evergreen-700" },
+  { label: "Receive",      href: "/payments",      icon: Download,        color: "bg-primary-600", hover: "hover:bg-primary-700" },
   { label: "Transfer",     href: "/payments",      icon: ArrowLeftRight,  color: "bg-violet-500",   hover: "hover:bg-violet-600" },
   { label: "Pay Bill",     href: "/payments",      icon: CreditCard,      color: "bg-amber-500",    hover: "hover:bg-amber-600" },
   { label: "Add Money",    href: "/banking",       icon: Plus,            color: "bg-teal-500",     hover: "hover:bg-teal-600" },

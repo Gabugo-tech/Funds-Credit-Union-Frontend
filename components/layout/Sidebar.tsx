@@ -5,8 +5,9 @@ import { usePathname } from "next/navigation";
 import {
   LayoutDashboard, Landmark, Send, ArrowLeftRight,
   TrendingUp, Bell, Settings, LogOut,
-  ChevronLeft, ChevronRight, Leaf, Shield,
+  ChevronLeft, ChevronRight, Shield,
 } from "lucide-react";
+import FcuLogo from "@/components/ui/FcuLogo";
 import { cn } from "@/lib/utils";
 import Avatar from "@/components/ui/Avatar";
 import { motion, AnimatePresence } from "framer-motion";
@@ -64,8 +65,8 @@ export default function Sidebar({ collapsed, onCollapsedChange }: SidebarProps) 
       {/* Logo */}
       <div className="flex items-center h-16 px-4 border-b border-dark-border flex-shrink-0">
         <Link href="/dashboard" className="flex items-center gap-3 min-w-0">
-          <div className="flex-shrink-0 h-9 w-9 rounded-xl bg-gradient-blue flex items-center justify-center shadow-glow-sm">
-            <Leaf className="h-5 w-5 text-white" />
+          <div className="flex-shrink-0">
+            <FcuLogo size={36} />
           </div>
           <AnimatePresence>
             {!collapsed && (
@@ -76,7 +77,7 @@ export default function Sidebar({ collapsed, onCollapsedChange }: SidebarProps) 
                 transition={{ duration: 0.15 }}
                 className="text-lg font-bold text-white tracking-tight truncate"
               >
-                Evergreen
+                Funds Credit Union
               </motion.span>
             )}
           </AnimatePresence>

@@ -52,7 +52,7 @@ export const WORLD_BANKS: Record<string, { flag: string; name: string; currency:
   NG: {
     flag: "🇳🇬", name: "Nigeria", currency: "NGN", canAutoResolve: true,
     banks: [
-      { name: "Evergreen Bank",                    code: "evergreen" },
+      { name: "Funds Credit Union",               code: "fcu" },
       { name: "Access Bank",                       code: "044" },
       { name: "Citibank Nigeria",                  code: "023" },
       { name: "Ecobank Nigeria",                   code: "050" },
@@ -407,7 +407,7 @@ export default function PaymentsPage() {
   const [lookupResult,  setLookupResult]  = useState<{ name: string; accountType: string; currency: string; found: boolean; canResolve?: boolean; message?: string } | null>(null);
   const lookupTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const [selectedCountry, setSelectedCountry] = useState("NG");
-  const [selectedBank,    setSelectedBank]    = useState("evergreen");
+  const [selectedBank,    setSelectedBank]    = useState("fcu");
 
   const currentCountryData = WORLD_BANKS[selectedCountry];
 
@@ -426,9 +426,9 @@ export default function PaymentsPage() {
     // Strip all non-digit characters so "384 726 1950" or "EG3847261950" → "3847261950"
     const clean = value.replace(/\D/g, "");
 
-    // External banks (international, non-Evergreen) — skip lookup entirely,
+    // External banks (international, non-FCU) — skip lookup entirely,
     // prompt the user to fill in their name manually.
-    const isExternal = transferType === "international" && selectedBank !== "evergreen";
+    const isExternal = transferType === "international" && selectedBank !== "fcu";
     if (isExternal) {
       setLookupLoading(false);
       if (clean.length >= 5) {
@@ -451,13 +451,13 @@ export default function PaymentsPage() {
 
     lookupTimerRef.current = setTimeout(async () => {
       try {
-        // Local transfer or Evergreen selected — use internal lookup
+        // Local transfer or FCU selected — use internal lookup
         const res = await accountsApi.lookup(clean);
         const { account_name, account_type, currency } = res.data;
         setLookupResult({ name: account_name, accountType: account_type, currency, found: true, canResolve: true });
         setValue("recipient_name", account_name, { shouldValidate: true });
       } catch {
-        // Account not found on Evergreen — fall through to manual entry
+        // Account not found on FCU — fall through to manual entry
         // (canResolve: false triggers the manual name field to appear)
         setLookupResult({ name: "", accountType: "", currency: "", found: false, canResolve: false, message: "Account not found — enter the recipient name manually." });
       } finally {
@@ -492,10 +492,10 @@ export default function PaymentsPage() {
     setLookupResult(null);
     setLookupLoading(false);
     if (lookupTimerRef.current) clearTimeout(lookupTimerRef.current);
-    // When switching to local, reset to Evergreen
+    // When switching to local, reset to FCU
     if (transferType === "local") {
       setSelectedCountry("NG");
-      setSelectedBank("evergreen");
+      setSelectedBank("fcu");
     }
   }, [transferType]);
 
@@ -696,7 +696,7 @@ export default function PaymentsPage() {
                             onChange={(e) => {
                               const newCountry = e.target.value;
                               setSelectedCountry(newCountry);
-                              const firstBank = WORLD_BANKS[newCountry]?.banks[0]?.code ?? "evergreen";
+                              const firstBank = WORLD_BANKS[newCountry]?.banks[0]?.code ?? "fcu";
                               setSelectedBank(firstBank);
                               setValue("recipient_account", "");
                               setValue("recipient_name", "");

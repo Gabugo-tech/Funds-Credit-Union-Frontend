@@ -7,27 +7,27 @@
 /* ─── Base ──────────────────────────────────────────────────────────────── */
 @layer base {
   :root {
-    --bg:           240 249 255;
+    --bg:           240 247 255;
     --surface:      255 255 255;
-    --border:       226 232 240;
-    --text-primary: 15 23 42;
-    --text-muted:   100 116 139;
-    --scrollbar-thumb: #93c5fd;
-    --scrollbar-track: #f0f4fb;
+    --border:       219 239 254;
+    --text-primary: 6 13 26;
+    --text-muted:   71 105 143;
+    --scrollbar-thumb: #0da6ea;
+    --scrollbar-track: #f0f7ff;
   }
 
   .dark {
-    --bg:           8 14 28;
-    --surface:      15 25 40;
-    --border:       30 45 69;
+    --bg:           6 13 26;
+    --surface:      10 22 40;
+    --border:       22 40 68;
     --text-primary: 226 232 240;
     --text-muted:   100 116 139;
-    --scrollbar-thumb: #1e3a8a;
-    --scrollbar-track: #0f1928;
+    --scrollbar-thumb: #035fa1;
+    --scrollbar-track: #0a1628;
   }
 
   * {
-    @apply border-slate-200 dark:border-dark-border;
+    @apply border-sky-100 dark:border-dark-border;
     box-sizing: border-box;
   }
 
@@ -35,88 +35,95 @@
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    /* Prevent horizontal overflow on mobile */
     overflow-x: hidden;
   }
 
   body {
     @apply bg-light-bg dark:bg-dark-bg text-slate-900 dark:text-slate-100 font-sans transition-colors duration-300;
     min-height: 100vh;
-    min-height: 100dvh; /* Dynamic viewport height for mobile browsers */
+    min-height: 100dvh;
     overflow-x: hidden;
   }
 
-  /* Mobile tap highlight */
   * {
     -webkit-tap-highlight-color: transparent;
   }
 
-  /* Inputs look correct on iOS */
   input, select, textarea {
     -webkit-appearance: none;
     appearance: none;
     border-radius: 0;
   }
 
-  /* Custom scrollbar */
   ::-webkit-scrollbar { width: 6px; height: 6px; }
   ::-webkit-scrollbar-track { background: var(--scrollbar-track); }
   ::-webkit-scrollbar-thumb { background: var(--scrollbar-thumb); border-radius: 3px; }
-  ::-webkit-scrollbar-thumb:hover { background: #3b82f6; }
+  ::-webkit-scrollbar-thumb:hover { background: #0da6ea; }
 
-  /* Selection */
-  ::selection { background: rgba(37, 99, 235, 0.2); color: inherit; }
+  ::selection { background: rgba(13, 166, 234, 0.2); color: inherit; }
 }
 
 /* ─── Components ─────────────────────────────────────────────────────────── */
 @layer components {
-  /* Card base */
   .card {
     @apply bg-light-card dark:bg-dark-card rounded-2xl border border-light-border dark:border-dark-border
            shadow-card-light dark:shadow-card-dark transition-all duration-200;
   }
 
-  /* Glass morphism card */
   .card-glass {
-    @apply rounded-2xl border border-white/20 dark:border-white/10
-           backdrop-blur-md bg-white/60 dark:bg-white/5
+    @apply rounded-2xl border border-sky-200/40 dark:border-sky-800/20
+           backdrop-blur-md bg-white/70 dark:bg-sky-950/20
            shadow-card-light dark:shadow-card-dark;
   }
 
-  /* Gradient card */
   .card-gradient {
     @apply rounded-2xl bg-gradient-blue text-white shadow-glow-blue;
   }
 
-  /* Input base */
+  /* Gold accent card — for trust/promo elements */
+  .card-gold {
+    @apply rounded-2xl text-white shadow-glow-gold;
+    background: linear-gradient(135deg, #b45309 0%, #fbbf24 100%);
+  }
+
   .input-base {
-    @apply w-full rounded-xl border border-light-border dark:border-dark-border
-           bg-light-surface dark:bg-dark-surface
+    @apply w-full rounded-xl border border-sky-200 dark:border-dark-border
+           bg-white dark:bg-dark-surface
            px-4 py-3 text-sm text-slate-900 dark:text-slate-100
            placeholder:text-slate-400 dark:placeholder:text-slate-500
-           focus:outline-none focus:ring-2 focus:ring-primary-500/50 focus:border-primary-500
+           focus:outline-none focus:ring-2 focus:ring-sky-400/50 focus:border-sky-400
            transition-all duration-150 disabled:opacity-50 disabled:cursor-not-allowed;
   }
 
-  /* Button variants */
   .btn-primary {
     @apply inline-flex items-center justify-center gap-2
-           rounded-xl bg-gradient-blue text-white font-semibold
+           rounded-xl bg-gradient-gold text-white font-semibold
            px-5 py-2.5 text-sm
            hover:opacity-90 active:scale-[0.98]
-           focus:outline-none focus:ring-2 focus:ring-primary-500/50
+           focus:outline-none focus:ring-2 focus:ring-gold-400/50
            disabled:opacity-50 disabled:cursor-not-allowed
-           transition-all duration-150 shadow-glow-sm;
+           transition-all duration-150 shadow-glow-gold;
+  }
+
+  /* Gold CTA button — for high-conversion actions */
+  .btn-gold {
+    @apply inline-flex items-center justify-center gap-2
+           rounded-xl bg-gradient-gold text-white font-bold
+           px-5 py-2.5 text-sm
+           hover:opacity-90 active:scale-[0.98]
+           focus:outline-none focus:ring-2 focus:ring-gold-400/50
+           disabled:opacity-50 disabled:cursor-not-allowed
+           transition-all duration-150 shadow-glow-gold;
   }
 
   .btn-secondary {
     @apply inline-flex items-center justify-center gap-2
-           rounded-xl border border-light-border dark:border-dark-border
-           bg-light-surface dark:bg-dark-surface
+           rounded-xl border border-sky-200 dark:border-dark-border
+           bg-white dark:bg-dark-surface
            text-slate-700 dark:text-slate-200 font-medium
            px-5 py-2.5 text-sm
-           hover:bg-slate-50 dark:hover:bg-dark-muted active:scale-[0.98]
-           focus:outline-none focus:ring-2 focus:ring-primary-500/30
+           hover:bg-sky-50 dark:hover:bg-dark-muted active:scale-[0.98]
+           focus:outline-none focus:ring-2 focus:ring-sky-400/30
            disabled:opacity-50 disabled:cursor-not-allowed
            transition-all duration-150;
   }
@@ -125,7 +132,7 @@
     @apply inline-flex items-center justify-center gap-2
            rounded-xl text-slate-600 dark:text-slate-400 font-medium
            px-4 py-2 text-sm
-           hover:bg-slate-100 dark:hover:bg-dark-muted active:scale-[0.98]
+           hover:bg-sky-50 dark:hover:bg-dark-muted active:scale-[0.98]
            focus:outline-none
            transition-all duration-150;
   }
@@ -140,66 +147,72 @@
            transition-all duration-150;
   }
 
-  /* Badge */
   .badge {
     @apply inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-xs font-medium;
   }
-  .badge-blue    { @apply badge bg-primary-100 text-primary-700 dark:bg-primary-900/40 dark:text-primary-300; }
+  .badge-blue    { @apply badge bg-sky-100 text-sky-700 dark:bg-sky-900/40 dark:text-sky-300; }
+  .badge-gold    { @apply badge bg-gold-100 text-gold-700 dark:bg-gold-900/40 dark:text-gold-300; }
   .badge-green   { @apply badge bg-success-bg text-success-dark dark:bg-green-900/40 dark:text-green-400; }
   .badge-red     { @apply badge bg-danger-bg text-danger-dark dark:bg-red-900/40 dark:text-red-400; }
   .badge-yellow  { @apply badge bg-warning-bg text-warning-dark dark:bg-yellow-900/40 dark:text-yellow-400; }
   .badge-neutral { @apply badge bg-slate-100 text-slate-600 dark:bg-slate-800 dark:text-slate-400; }
 
-  /* Stat card */
   .stat-card {
     @apply card p-5 flex flex-col gap-3 hover:shadow-glow-sm transition-shadow duration-300;
   }
 
-  /* Section heading */
   .section-title {
     @apply text-lg font-semibold text-slate-900 dark:text-white;
   }
 
-  /* Divider */
   .divider {
-    @apply border-t border-light-border dark:border-dark-border;
+    @apply border-t border-sky-100 dark:border-dark-border;
   }
 
-  /* Skeleton loader */
   .skeleton {
-    @apply animate-pulse rounded-lg bg-slate-200 dark:bg-dark-muted;
+    @apply animate-pulse rounded-lg bg-sky-100 dark:bg-dark-muted;
   }
 
-  /* Nav link active */
   .nav-link {
     @apply flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium
            text-slate-600 dark:text-slate-400
-           hover:bg-primary-50 hover:text-primary-700
-           dark:hover:bg-primary-900/20 dark:hover:text-primary-300
+           hover:bg-sky-50 hover:text-sky-700
+           dark:hover:bg-sky-900/20 dark:hover:text-sky-300
            transition-all duration-150;
   }
   .nav-link-active {
-    @apply nav-link bg-primary-50 text-primary-700
-           dark:bg-primary-900/30 dark:text-primary-300
+    @apply nav-link bg-sky-50 text-sky-700
+           dark:bg-sky-900/30 dark:text-sky-300
            shadow-glow-sm;
   }
 
-  /* Table */
   .table-row-hover {
-    @apply hover:bg-slate-50 dark:hover:bg-dark-muted transition-colors duration-100 cursor-pointer;
+    @apply hover:bg-sky-50 dark:hover:bg-dark-muted transition-colors duration-100 cursor-pointer;
+  }
+
+  /* Trust strip — gold banner used on landing page */
+  .trust-strip {
+    background: linear-gradient(90deg, #035fa1 0%, #0da6ea 50%, #fbbf24 100%);
   }
 }
 
 /* ─── Utilities ──────────────────────────────────────────────────────────── */
 @layer utilities {
   .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-blue;
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, #0da6ea 0%, #035fa1 50%, #fbbf24 100%);
+  }
+
+  .text-gradient-gold {
+    @apply bg-clip-text text-transparent bg-gradient-gold;
   }
 
   .bg-mesh {
-    background-image: radial-gradient(at 20% 50%, rgba(37,99,235,0.12) 0px, transparent 50%),
-                      radial-gradient(at 80% 20%, rgba(14,132,241,0.08) 0px, transparent 50%),
-                      radial-gradient(at 50% 80%, rgba(29,78,216,0.06) 0px, transparent 50%);
+    background-image:
+      radial-gradient(at 20% 50%, rgba(2,119,198,0.14) 0px, transparent 50%),
+      radial-gradient(at 80% 20%, rgba(13,166,234,0.10) 0px, transparent 50%),
+      radial-gradient(at 60% 85%, rgba(251,191,36,0.10) 0px, transparent 50%),
+      radial-gradient(at 10% 90%, rgba(3,95,161,0.08) 0px, transparent 50%);
   }
 
   .scrollbar-hide {
@@ -212,4 +225,13 @@
 
   .positive { @apply text-success-light dark:text-green-400; }
   .negative { @apply text-danger-light dark:text-red-400; }
+
+  /* Gold shimmer highlight — use on hero stats */
+  .gold-shimmer {
+    background: linear-gradient(90deg, #fbbf24, #f59e0b, #fcd34d, #f59e0b, #fbbf24);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shimmer 2.5s linear infinite;
+  }
 }

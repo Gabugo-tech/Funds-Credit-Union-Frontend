@@ -1,5 +1,5 @@
 /**
- * Evergreen API client
+ * Funds Credit Union API client
  * Wraps all calls to the Node.js backend and Python analytics service.
  */
 

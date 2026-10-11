@@ -3,15 +3,15 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Sign In",
   description:
-    "Sign in to your Evergreen account. Access your multi-currency wallet, investment portfolio, and global payments dashboard.",
+    "Sign in to your Funds Credit Union account. Access your multi-currency wallet, investment portfolio, and global payments dashboard.",
   alternates: {
-    canonical: "https://evergreen-frontend-lac.vercel.app/login",
+    canonical: "https://fundscreditunion.vercel.app/login",
   },
   openGraph: {
-    title: "Sign In to Evergreen",
+    title: "Sign In to Funds Credit Union",
     description:
       "Access your digital banking and investment dashboard. Secure login with 256-bit encryption.",
-    url: "https://evergreen-frontend-lac.vercel.app/login",
+    url: "https://fundscreditunion.vercel.app/login",
   },
 };
 

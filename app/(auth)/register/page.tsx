@@ -207,9 +207,9 @@ export default function RegisterPage() {
       {/* Mobile logo */}
       <div className="flex lg:hidden items-center gap-2 mb-8">
         <div className="h-9 w-9 rounded-xl bg-gradient-blue flex items-center justify-center shadow-glow-sm">
-          <span className="text-white font-bold text-sm">EG</span>
+          <span className="text-white font-bold text-sm">FCU</span>
         </div>
-        <span className="text-xl font-bold text-slate-900 dark:text-white">Evergreen</span>
+        <span className="text-xl font-bold text-slate-900 dark:text-white">Funds Credit Union</span>
       </div>
 
       {/* Step indicator */}
@@ -403,7 +403,7 @@ export default function RegisterPage() {
             </div>
             <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">Account created!</h2>
             <p className="text-slate-500 dark:text-slate-400 mb-8 text-sm">
-              Welcome to Evergreen. We&apos;ve sent a verification email to{" "}
+              Welcome to Funds Credit Union. We&apos;ve sent a verification email to{" "}
               <span className="font-medium text-slate-700 dark:text-slate-300">{step1Data?.email}</span>
             </p>
             <Button fullWidth size="lg" rightIcon={<ArrowRight className="h-4 w-4" />} onClick={() => router.push("/dashboard")}>
