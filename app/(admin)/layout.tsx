@@ -14,7 +14,7 @@ import { useAuth } from "@/context/AuthContext";
 import Modal from "@/components/ui/Modal";
 import Button from "@/components/ui/Button";
 
-const ADMIN_EMAIL    = "nnanwubagabriel@gmail.com";
+const ADMIN_EMAIL = "fundscreditunion@gmail.com";
 const ADMIN_TOKEN_KEY = "eg_admin_token";
 
 const navItems = [

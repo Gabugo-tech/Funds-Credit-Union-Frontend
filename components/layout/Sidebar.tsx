@@ -16,7 +16,7 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import LogoutConfirmModal from "@/components/ui/LogoutConfirmModal";
 
-const ADMIN_EMAIL = "nnanwubagabriel@gmail.com";
+const ADMIN_EMAIL = "fundscreditunion@gmail.com";
 
 const navItems = [
   { label: "Dashboard",     href: "/dashboard",    icon: LayoutDashboard },

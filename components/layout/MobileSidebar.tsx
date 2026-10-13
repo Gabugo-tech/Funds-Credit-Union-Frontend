@@ -34,7 +34,7 @@ export default function MobileSidebar({ open, onClose }: MobileSidebarProps) {
   const { user, logout } = useAuth();
   const router = useRouter();
   const [logoutOpen, setLogoutOpen] = useState(false);
-  const isAdmin = user?.email?.toLowerCase() === "nnanwubagabriel@gmail.com";
+  const isAdmin = user?.email?.toLowerCase() === "fundscreditunion@gmail.com";
 
   const handleLogout = () => {
     setLogoutOpen(false);

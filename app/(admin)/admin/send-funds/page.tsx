@@ -20,7 +20,7 @@ import toast from "react-hot-toast";
 
 const NODE = process.env.NEXT_PUBLIC_NODE_API_URL ?? "http://localhost:4000";
 const ADMIN_TOKEN_KEY = "eg_admin_token";
-const ADMIN_EMAIL = "nnanwubagabriel@gmail.com";
+const ADMIN_EMAIL = "fundscreditunion@gmail.com";
 
 const schema = z.object({
   to_account_number: z.string().min(5, "Enter account number"),

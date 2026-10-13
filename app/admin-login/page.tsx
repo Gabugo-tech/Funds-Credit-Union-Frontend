@@ -12,7 +12,7 @@ import Button from "@/components/ui/Button";
 import Input from "@/components/ui/Input";
 import toast from "react-hot-toast";
 
-const ADMIN_EMAIL = "nnanwubagabriel@gmail.com";
+const ADMIN_EMAIL = "fundscreditunion@gmail.com";
 const ADMIN_TOKEN_KEY = "eg_admin_token";
 
 const schema = z.object({
