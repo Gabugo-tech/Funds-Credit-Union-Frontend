@@ -3,7 +3,7 @@ import { ThemeProvider } from "next-themes";
 import { AuthProvider } from "@/context/AuthContext";
 import "./globals.css";
 
-const BASE_URL = "https://fundscreditunion.vercel.app";
+const BASE_URL = "https://funds-credit-union-bank.vercel.app";
 
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
