@@ -20,11 +20,11 @@
   "rewrites": [
     {
       "source": "/api/node/:path*",
-      "destination": "https://funds-credit-union-api.up.railway.app/api/:path*"
+      "destination": "https://funds-credit-union-backend-production-76c3.up.railway.app/api/:path*"
     },
     {
       "source": "/api/analytics/:path*",
-      "destination": "https://funds-credit-union-analytics.up.railway.app/api/:path*"
+      "destination": "https://funds-credit-union-backend-production.up.railway.app/api/:path*"
     }
   ]
 }
