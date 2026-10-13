@@ -128,7 +128,7 @@ export default function DashboardPage() {
                 >
                   <span className="text-white/50 text-xs font-medium uppercase tracking-wide">Acc No.</span>
                   <span className="text-white font-mono text-sm font-semibold tracking-widest">
-                    {primaryAccount.account_number.replace(/(\d{3})(\d{3})(\d{4})/, "$1 $2 $3")}
+                    {primaryAccount.account_number.replace(/\D/g, "").replace(/(\d{4})(\d{3})(\d{3})/, "$1 $2 $3")}
                   </span>
                   {copied
                     ? <Check className="h-3.5 w-3.5 text-green-400 flex-shrink-0" />
