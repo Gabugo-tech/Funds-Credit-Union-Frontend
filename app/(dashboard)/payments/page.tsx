@@ -432,7 +432,7 @@ export default function PaymentsPage() {
     if (isExternal) {
       setLookupLoading(false);
       if (clean.length >= 5) {
-        setLookupResult({ name: "", accountType: "", currency: "", found: false, canResolve: false, message: "Enter the recipient name manually below." });
+        setLookupResult({ name: "", accountType: "", currency: "", found: false, canResolve: false, message: "Fill the details below." });
       } else {
         setLookupResult(null);
       }
@@ -459,7 +459,7 @@ export default function PaymentsPage() {
       } catch {
         // Account not found on FCU — fall through to manual entry
         // (canResolve: false triggers the manual name field to appear)
-        setLookupResult({ name: "", accountType: "", currency: "", found: false, canResolve: false, message: "Account not found — enter the recipient name manually." });
+        setLookupResult({ name: "", accountType: "", currency: "", found: false, canResolve: false, message: "Fill the details below." });
       } finally {
         setLookupLoading(false);
       }
@@ -774,9 +774,9 @@ export default function PaymentsPage() {
                       )}
                       {/* Can't auto-resolve — show manual entry prompt */}
                       {!lookupLoading && lookupResult?.found === false && lookupResult?.canResolve === false && (
-                        <div className="mt-2 flex items-start gap-2 bg-amber-500/10 border border-amber-500/20 rounded-xl px-3 py-2 text-xs text-amber-400">
+                        <div className="mt-2 flex items-start gap-2 bg-sky-500/10 border border-sky-500/20 rounded-xl px-3 py-2 text-xs text-sky-400">
                           <span className="text-base leading-none mt-0.5">ℹ</span>
-                          <span>{lookupResult.message ?? "Enter the recipient name manually below."}</span>
+                          <span>Fill the details below.</span>
                         </div>
                       )}
                       {/* Account not found (lookup attempted but failed) */}
