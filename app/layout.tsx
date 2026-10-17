@@ -67,8 +67,7 @@ export const metadata: Metadata = {
     apple: "/apple-touch-icon.png",
   },
   verification: {
-    // Add your Google Search Console verification token here when available
-    // google: "your-google-verification-token",
+    google: "6G-6uhO3YiwdFvVl9TL3X8sHO63FQx-a1sqBk-fePsQ",
   },
 };
 
