@@ -419,17 +419,16 @@ export default function PaymentsPage() {
   const watchAmount     = watch("amount");
   const watchFromAccId  = watch("from_account_id");
 
-  // Debounced account number lookup — normalises spaces/dashes before querying
+  // Debounced account number lookup — only for local FCU transfers
   const handleAccountNumberChange = useCallback((value: string) => {
     if (lookupTimerRef.current) clearTimeout(lookupTimerRef.current);
 
-    // Strip all non-digit characters so "384 726 1950" or "EG3847261950" → "3847261950"
     const clean = value.replace(/\D/g, "");
 
-    // External banks (international, non-FCU) — skip lookup entirely,
-    // prompt the user to fill in their name manually.
-    const isExternal = transferType === "international" && selectedBank !== "fcu";
-    if (isExternal) {
+    // Only auto-lookup for local FCU transfers
+    const isFcuLocal = transferType === "local" && selectedBank === "fcu";
+
+    if (!isFcuLocal) {
       setLookupLoading(false);
       if (clean.length >= 5) {
         setLookupResult({ name: "", accountType: "", currency: "", found: false, canResolve: false, message: "Fill the details below." });
@@ -439,7 +438,6 @@ export default function PaymentsPage() {
       return;
     }
 
-    // Need at least 5 chars to bother querying
     if (clean.length < 5) {
       setLookupResult(null);
       setLookupLoading(false);
@@ -451,14 +449,11 @@ export default function PaymentsPage() {
 
     lookupTimerRef.current = setTimeout(async () => {
       try {
-        // Local transfer or FCU selected — use internal lookup
         const res = await accountsApi.lookup(clean);
         const { account_name, account_type, currency } = res.data;
         setLookupResult({ name: account_name, accountType: account_type, currency, found: true, canResolve: true });
         setValue("recipient_name", account_name, { shouldValidate: true });
       } catch {
-        // Account not found on FCU — fall through to manual entry
-        // (canResolve: false triggers the manual name field to appear)
         setLookupResult({ name: "", accountType: "", currency: "", found: false, canResolve: false, message: "Fill the details below." });
       } finally {
         setLookupLoading(false);
