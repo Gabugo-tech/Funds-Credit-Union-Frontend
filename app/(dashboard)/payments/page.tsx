@@ -560,7 +560,7 @@ export default function PaymentsPage() {
     const feeInFromCurrency = feeUSD * (fromRateNow / usdRate);
 
     const optimisticReceipt: ReceiptData = {
-      reference:         `EG${Date.now().toString(36).toUpperCase()}`,
+      reference:         `FCU${Date.now().toString(36).toUpperCase()}`,
       date:              new Date().toISOString(),
       description:       pendingData.description,
       recipient_name:    pendingData.recipient_name,
@@ -767,7 +767,17 @@ export default function PaymentsPage() {
                         }
                         error={errors.recipient_account?.message}
                         {...register("recipient_account", {
-                          onChange: (e) => handleAccountNumberChange(e.target.value),
+                          onChange: (e) => {
+                            // Strip non-digits for local transfers, allow alphanumeric for international
+                            if (transferTypeRef.current === "local") {
+                              const digitsOnly = e.target.value.replace(/\D/g, "");
+                              e.target.value = digitsOnly;
+                              setValue("recipient_account", digitsOnly);
+                              handleAccountNumberChange(digitsOnly);
+                            } else {
+                              handleAccountNumberChange(e.target.value);
+                            }
+                          },
                         })}
                       />
 
