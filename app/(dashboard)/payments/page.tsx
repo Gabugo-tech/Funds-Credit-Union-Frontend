@@ -409,12 +409,6 @@ export default function PaymentsPage() {
   const [selectedCountry, setSelectedCountry] = useState("NG");
   const [selectedBank,    setSelectedBank]    = useState("fcu");
 
-  // Use a ref so handleAccountNumberChange always reads the latest state
-  const selectedBankRef   = useRef(selectedBank);
-  const transferTypeRef   = useRef(transferType);
-  useEffect(() => { selectedBankRef.current = selectedBank; },   [selectedBank]);
-  useEffect(() => { transferTypeRef.current = transferType; }, [transferType]);
-
   const currentCountryData = WORLD_BANKS[selectedCountry];
 
   const { register, handleSubmit, formState: { errors }, reset, watch, setValue, getValues } = useForm<SendFormData>({
@@ -424,6 +418,12 @@ export default function PaymentsPage() {
   const transferType    = watch("transfer_type");
   const watchAmount     = watch("amount");
   const watchFromAccId  = watch("from_account_id");
+
+  // Use refs so handleAccountNumberChange always reads the latest state (avoids stale closure)
+  const selectedBankRef = useRef(selectedBank);
+  const transferTypeRef = useRef(transferType);
+  useEffect(() => { selectedBankRef.current = selectedBank; }, [selectedBank]);
+  useEffect(() => { transferTypeRef.current = transferType; }, [transferType]);
 
   // Debounced account number lookup — only for local FCU transfers
   const handleAccountNumberChange = useCallback((value: string) => {
