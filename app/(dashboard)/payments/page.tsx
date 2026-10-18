@@ -461,7 +461,8 @@ export default function PaymentsPage() {
         setLookupResult({ name: account_name, accountType: account_type, currency, found: true, canResolve: true });
         setValue("recipient_name", account_name, { shouldValidate: true });
       } catch {
-        setLookupResult({ name: "", accountType: "", currency: "", found: false, canResolve: false, message: "Fill the details below." });
+        // Account not found in FCU — let user enter manually
+        setLookupResult({ name: "", accountType: "", currency: "", found: false, canResolve: false, message: "Account not found in Funds Credit Union. Enter recipient name manually." });
       } finally {
         setLookupLoading(false);
       }
