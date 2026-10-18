@@ -409,6 +409,12 @@ export default function PaymentsPage() {
   const [selectedCountry, setSelectedCountry] = useState("NG");
   const [selectedBank,    setSelectedBank]    = useState("fcu");
 
+  // Use a ref so handleAccountNumberChange always reads the latest state
+  const selectedBankRef   = useRef(selectedBank);
+  const transferTypeRef   = useRef(transferType);
+  useEffect(() => { selectedBankRef.current = selectedBank; },   [selectedBank]);
+  useEffect(() => { transferTypeRef.current = transferType; }, [transferType]);
+
   const currentCountryData = WORLD_BANKS[selectedCountry];
 
   const { register, handleSubmit, formState: { errors }, reset, watch, setValue, getValues } = useForm<SendFormData>({
@@ -425,8 +431,8 @@ export default function PaymentsPage() {
 
     const clean = value.replace(/\D/g, "");
 
-    // Only auto-lookup for local FCU transfers
-    const isFcuLocal = transferType === "local" && selectedBank === "fcu";
+    // Read latest values from refs to avoid stale closure
+    const isFcuLocal = transferTypeRef.current === "local" && selectedBankRef.current === "fcu";
 
     if (!isFcuLocal) {
       setLookupLoading(false);
@@ -459,7 +465,7 @@ export default function PaymentsPage() {
         setLookupLoading(false);
       }
     }, 500);
-  }, [setValue, selectedBank, transferType]);
+  }, [setValue]); // stable — reads state via refs
 
   const loadData = useCallback(async () => {
     setHistLoad(true);
@@ -678,6 +684,26 @@ export default function PaymentsPage() {
 
                     {/* ── Step 1: Bank selector + Account number ── */}
                     <div>
+                      {/* Bank selector for LOCAL transfers */}
+                      {transferType === "local" && (
+                        <div className="mb-3">
+                          <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1.5">Bank</label>
+                          <select
+                            className="input-base"
+                            value={selectedBank}
+                            onChange={(e) => {
+                              setSelectedBank(e.target.value);
+                              setValue("recipient_account", "");
+                              setValue("recipient_name", "");
+                              setLookupResult(null);
+                            }}
+                          >
+                            {(WORLD_BANKS["NG"]?.banks ?? []).map(b => (
+                              <option key={b.code} value={b.code}>{b.name}</option>
+                            ))}
+                          </select>
+                        </div>
+                      )}
                       {/* Country + Bank selectors — only for international */}
                       {transferType === "international" && (
                         <>
@@ -697,7 +723,7 @@ export default function PaymentsPage() {
                               setValue("recipient_name", "");
                             }}
                           >
-                            {COUNTRY_LIST.filter(c => c.code !== "NG" || true).map(c => (
+                            {COUNTRY_LIST.map(c => (
                               <option key={c.code} value={c.code}>
                                 {c.flag} {c.name}
                               </option>
