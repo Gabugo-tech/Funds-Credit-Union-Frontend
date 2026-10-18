@@ -422,8 +422,9 @@ export default function PaymentsPage() {
   // Use refs so handleAccountNumberChange always reads the latest state (avoids stale closure)
   const selectedBankRef = useRef(selectedBank);
   const transferTypeRef = useRef(transferType);
-  useEffect(() => { selectedBankRef.current = selectedBank; }, [selectedBank]);
-  useEffect(() => { transferTypeRef.current = transferType; }, [transferType]);
+  // Keep refs in sync synchronously before render
+  selectedBankRef.current = selectedBank;
+  transferTypeRef.current = transferType;
 
   // Debounced account number lookup — only for local FCU transfers
   const handleAccountNumberChange = useCallback((value: string) => {
